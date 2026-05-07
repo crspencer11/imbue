@@ -21,3 +21,13 @@ def load_run(run_id: str) -> dict:
 
     with open(path) as f:
         return json.load(f)
+
+
+def list_runs() -> list[dict]:
+    runs = []
+
+    for path in RUN_DIR.glob("*.json"):
+        with open(path) as f:
+            runs.append(json.load(f))
+
+    return runs
