@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Social & Community Examples</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+  :root {
+    --rust: #C75F35;
+    --rust-light: #E08060;
+    --ink: #1A1916;
+    --warm-white: #F7F4EF;
+    --warm-gray: #E8E4DC;
+    --mid-gray: #8C8880;
+    --code-bg: #F0EDE7;
+    --accent-green: #3A6B4F;
+    --accent-blue: #2E4A72;
+    --section-gap: 72px;
+    --content-width: 760px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+  .wrapper { max-width: var(--content-width); margin: 0 auto; padding: 0 32px; }
+  .memo-section { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); padding: 48px 40px; margin: 48px 0; }
+  .memo-section h1 { font-size: clamp(28px, 4vw, 38px); font-weight: 600; margin-bottom: 18px; color: var(--ink); }
+  .memo-section h2 { font-size: 22px; font-weight: 600; margin: 36px 0 16px; color: var(--ink); }
+  .memo-section p { margin-bottom: 14px; color: #333; }
+  .col-card { background: var(--warm-gray); border-radius: 10px; padding: 1.2rem 1.3rem; }
+  .col-card h3 { font-size: 15px; font-weight: 600; margin: 0 0 0.5rem; color: var(--ink); }
+  .col-card p { font-size: 14px; color: #444; margin: 0; }
+  @media (max-width: 700px) {
+    .memo-section { padding: 24px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="memo-section">
+    <h1>Social & Community Examples</h1>
+    <div style="display: flex; flex-direction: column; gap: 24px; margin-bottom: 32px;">
+      <div class="col-card" style="background:#fff; border:1px solid #e0dbd2;">
+        <h3 style="font-size:15px; margin-bottom:8px; color:#1A1916;">Tweet</h3>
+        <div style="font-family:'DM Mono',monospace; font-size:14px; color:#222; margin-bottom:8px;">Tried mngr from Imbue this week and ended up building a lightweight agent investigation workflow around it.<br><br>
+        Instead of manually debugging raw runtime crashes, the workflow:<br>
+        <ul style="margin:8px 0 8px 18px;">
+          <li>extracts structured error signals</li>
+          <li>searches relevant repo context</li>
+          <li>generates debugging summaries</li>
+        </ul>
+        The interesting part of mngr isn’t “AI chat in terminal” rather it’s the workflow/tooling abstraction underneath it.<br><br>
+        <strong>The biggest opportunity:</strong> making the first-agent + first-debug experience dramatically smoother for external developers.<br><br>
+        <a href="#" style="color:#2E4A72; text-decoration:underline;">mngr GitHub repo</a>
+        </div>
+      </div>
+      <div class="col-card" style="background:#fff; border:1px solid #e0dbd2;">
+        <h3 style="font-size:15px; margin-bottom:8px; color:#1A1916;">Hacker News Post</h3>
+        <div style="font-family:'DM Mono',monospace; font-size:14px; color:#222; margin-bottom:8px;">
+          <strong>Title:</strong> Building a lightweight agent investigation workflow with mngr<br><br>
+          I spent some time evaluating mngr from Imbue as an external developer this week and ended up building a small debugging/investigation workflow around it.<br>
+          The initial trigger was actually onboarding friction. After install, running:<br>
+          <code style="background:#F0EDE7; padding:2px 6px; border-radius:4px;">mngr create</code><br>
+          immediately failed with a thread/runtime error.<br><br>
+          Rather than manually debugging everything, I built a lightweight workflow that:
+          <ul style="margin:8px 0 8px 18px;">
+            <li>extracts structured signals from logs</li>
+            <li>searches repository context</li>
+            <li>surfaces likely debugging paths</li>
+            <li>generates concise investigation summaries</li>
+          </ul>
+          What became interesting to me wasn’t the agent itself, but the abstraction model underneath:
+          <ul style="margin:8px 0 8px 18px;">
+            <li>tools</li>
+            <li>workflows</li>
+            <li>persistent execution context</li>
+            <li>composable debugging/investigation steps</li>
+          </ul>
+          The experience made me think a lot about developer UX for agent systems beyond just prompt interfaces.<br>
+          I think there’s a particularly interesting opportunity around:
+          <ul style="margin:8px 0 8px 18px;">
+            <li>reusable workflows</li>
+            <li>shareable debugging/investigation skills</li>
+            <li>structured first-agent onboarding</li>
+            <li>runtime diagnostics for external developers</li>
+          </ul>
+          Repo: <a href="#" style="color:#2E4A72; text-decoration:underline;">mngr GitHub repo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
