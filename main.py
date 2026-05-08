@@ -10,7 +10,7 @@ ISSUE = "mngr create crashes immediately after install"
 
 def main():
     log_tool = LogAnalysisTool()
-    repo_tool = RepoSearchTool("./mngr")  # IMPORTANT: scoped correctly
+    repo_tool = RepoSearchTool("../../mngr")  # local fp -> mngr
 
     print("\n=== Extracted Error Keywords ===")
     keywords = log_tool.extract_error_keywords(LOGS)
