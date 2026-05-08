@@ -1,15 +1,29 @@
 from pathlib import Path
 
+IGNORED_DIRS = {
+    ".venv", "venv", "__pycache__", ".git",
+    "site-packages", ".idea"
+}
+
 class RepoSearchTool:
-    def __init__(self, root="."):
+    def __init__(self, root):
         self.root = Path(root)
 
+    def should_skip(self, path: Path):
+        return any(part in IGNORED_DIRS for part in path.parts)
+
     def search(self, query: str, extensions=None):
-        extensions = extensions or [".py", ".ts", ".tsx", ".go"]
+        extensions = extensions or [".py", ".ts", ".go"]
 
         matches = []
 
         for path in self.root.rglob("*"):
+            if self.should_skip(path):
+                continue
+
+            if not path.is_file():
+                continue
+
             if path.suffix not in extensions:
                 continue
 
@@ -18,23 +32,10 @@ class RepoSearchTool:
 
                 if query.lower() in content.lower():
                     matches.append({
-                        "file": str(path),
-                        "preview": self._extract_preview(content, query)
+                        "file": str(path)
                     })
 
             except Exception:
-                pass
+                continue
 
-        return matches[:10]
-
-    def _extract_preview(self, content, query):
-        lines = content.splitlines()
-
-        for i, line in enumerate(lines):
-            if query.lower() in line.lower():
-                start = max(0, i - 2)
-                end = min(len(lines), i + 3)
-
-                return "\n".join(lines[start:end])
-
-        return ""
+        return matches[:5]
