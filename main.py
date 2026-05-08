@@ -1,40 +1,70 @@
-import argparse
+# import argparse
 
-from agent.runtime import AgentRuntime
-from agent.replay import replay_from
-from agent.history import get_history
+# from agent.runtime import AgentRuntime
+# from agent.replay import replay_from
+# from agent.history import get_history
 
 
-parser = argparse.ArgumentParser()
+# parser = argparse.ArgumentParser()
 
-subparsers = parser.add_subparsers(dest="command")
+# subparsers = parser.add_subparsers(dest="command")
 
-run_parser = subparsers.add_parser("run")
-run_parser.add_argument("task")
+# run_parser = subparsers.add_parser("run")
+# run_parser.add_argument("task")
 
-replay_parser = subparsers.add_parser("replay")
-replay_parser.add_argument("run_id")
-replay_parser.add_argument("step", type=int)
+# replay_parser = subparsers.add_parser("replay")
+# replay_parser.add_argument("run_id")
+# replay_parser.add_argument("step", type=int)
 
-history_parser = subparsers.add_parser("history")
-history_parser.add_argument("run_id")
-history_parser.add_argument("step", type=int)
+# history_parser = subparsers.add_parser("history")
+# history_parser.add_argument("run_id")
+# history_parser.add_argument("step", type=int)
 
-args = parser.parse_args()
+# args = parser.parse_args()
 
-if args.command == "run":
-    runtime = AgentRuntime()
-    state = runtime.run(args.task)
+# if args.command == "run":
+#     runtime = AgentRuntime()
+#     state = runtime.run(args.task)
 
-    print(f"Run ID: {state.run_id}")
+#     print(f"Run ID: {state.run_id}")
 
-elif args.command == "replay":
-    state = replay_from(args.run_id, args.step)
+# elif args.command == "replay":
+#     state = replay_from(args.run_id, args.step)
 
-    print(f"Branched replay run: {state.run_id}")
+#     print(f"Branched replay run: {state.run_id}")
 
-elif args.command == "history":
-    # default is 0 or beginning of agent history
-    history = get_history(args.run_id, args.step)
+# elif args.command == "history":
+#     # default is 0 or beginning of agent history
+#     history = get_history(args.run_id, args.step)
 
-    print(history)
+#     print(history)
+
+
+from tools.repo_search_tool import RepoSearchTool
+from tools.log_analysis_tool import LogAnalysisTool
+
+ISSUE = """
+mngr create crashes immediately after install.
+"""
+
+LOGS = """
+ERROR: Error in thread 'write_certified_data' with target 'write_file'
+ERROR: Unhandled exception in thread
+"""
+
+repo_tool = RepoSearchTool(".")
+log_tool = LogAnalysisTool()
+
+keywords = log_tool.extract_error_keywords(LOGS)
+
+print("\n=== Extracted Error Keywords ===")
+print(keywords)
+
+print("\n=== Repository Search Results ===")
+
+for keyword in keywords:
+    results = repo_tool.search(keyword)
+
+    for result in results:
+        print(f"\nFile: {result['file']}")
+        print(result["preview"])
