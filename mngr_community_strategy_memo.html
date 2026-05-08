@@ -1,0 +1,105 @@
+
+<h2 class="sr-only">Community strategy memo for mngr: where developers live, how to engage them, what keeps them around, and how to build on Twitter and GitHub.</h2>
+
+<style>
+  .memo { max-width: 640px; padding: 2rem 0; font-size: 15px; line-height: 1.7; color: var(--color-text-primary); }
+  .meta { font-size: 13px; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); padding-bottom: 1.25rem; margin-bottom: 2rem; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; }
+  .meta span:nth-child(odd) { color: var(--color-text-tertiary); }
+  h1 { font-size: 20px; font-weight: 500; margin: 0 0 1.5rem; }
+  h2 { font-size: 15px; font-weight: 500; margin: 2rem 0 0.5rem; color: var(--color-text-primary); }
+  p { margin: 0 0 0.75rem; }
+  .insight { background: var(--color-background-secondary); border-left: 2px solid #7F77DD; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 0.75rem 1rem; margin: 0.75rem 0 1rem; font-size: 14px; color: var(--color-text-secondary); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 0.5rem 0 1rem; }
+  .tag { font-size: 12px; padding: 3px 10px; border-radius: 20px; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); color: var(--color-text-secondary); }
+  .tag.hi { background: #EEEDFE; color: #3C3489; border-color: #AFA9EC; }
+  .tag.lo { background: var(--color-background-secondary); color: var(--color-text-tertiary); border-color: var(--color-border-tertiary); text-decoration: line-through; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0.75rem 0; }
+  .col-card { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 0.875rem 1rem; }
+  .col-card h3 { font-size: 13px; font-weight: 500; margin: 0 0 0.5rem; display: flex; align-items: center; gap: 6px; color: var(--color-text-primary); }
+  .col-card p { font-size: 13px; color: var(--color-text-secondary); margin: 0; }
+  .col-card i { font-size: 15px; color: var(--color-text-tertiary); }
+  .warning { background: #FAEEDA; border-left: 2px solid #BA7517; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 0.75rem 1rem; margin: 0.75rem 0 1rem; font-size: 14px; color: #633806; }
+  @media (prefers-color-scheme: dark) {
+    .tag.hi { background: #26215C; color: #CECBF6; border-color: #534AB7; }
+    .warning { background: #412402; color: #FAC775; border-color: #854F0B; }
+  }
+</style>
+
+<div class="memo">
+  <h1>Community strategy: mngr</h1>
+
+  <div class="meta">
+    <span>To</span><span>Product &amp; Community Teams</span>
+    <span>From</span><span>Community Lead</span>
+    <span>Date</span><span>May 8, 2026</span>
+  </div>
+
+  <h2>Where the first deeply engaged developers live</h2>
+  <p>The developers most likely to become early power users are not general AI enthusiasts — they are workflow experimenters. They want controllable agents, reusable automation, and visibility into runtime behavior. They live on:</p>
+  <div class="tag-row">
+    <span class="tag hi">AI engineering Twitter/X</span>
+    <span class="tag hi">GitHub / open-source communities</span>
+    <span class="tag hi">Hacker News</span>
+    <span class="tag hi">r/AIEngineering</span>
+    <span class="tag hi">r/LocalLLaMA</span>
+    <span class="tag hi">Product Hunt (launch moments)</span>
+  </div>
+  <div class="insight">The common thread is not "AI enthusiasm" — it is dissatisfaction with existing tooling abstractions and a bias toward building their own workflows.</div>
+
+  <h2>How to engage them</h2>
+  <div class="cols">
+    <div class="col-card">
+      <h3><i class="ti ti-brand-github" aria-hidden="true"></i> GitHub</h3>
+      <p>Clear issues and templates. Fast PR response. Highlight contributor work visibly. Starter tasks for first-time contributors. Quickstart that gets to a working agent in &lt;10 minutes.</p>
+    </div>
+    <div class="col-card">
+      <h3><i class="ti ti-brand-x" aria-hidden="true"></i> Twitter/X</h3>
+      <p>Short terminal recordings and workflow demos. Threads on architecture decisions. Reply to user posts. Josh and Kanjun sharing case studies and behind-the-scenes dev work models this well.</p>
+    </div>
+    <div class="col-card">
+      <h3><i class="ti ti-users" aria-hidden="true"></i> Community events</h3>
+      <p>Virtual meetups + in-person in SF and NYC. Podcast outreach. Position around concrete engineering workflows, not AGI messaging.</p>
+    </div>
+    <div class="col-card">
+      <h3><i class="ti ti-article" aria-hidden="true"></i> Content</h3>
+      <p>Technical deep dives (parallel testing case studies, debugging recipes). Substack for longer-form. The bar is real developer leverage — not product announcements.</p>
+    </div>
+  </div>
+
+  <h2>What keeps them around</h2>
+  <p>The strongest retention mechanism is not model quality. It is reusable leverage. Developers stay when mngr becomes part of how they debug and automate daily workflows — not a tool they evaluate and discard.</p>
+  <p>Specifically, they stay when they can: save and reuse workflows, share them with teammates, compose tools and skills, and reduce repeated engineering work. Retention follows the moment mngr is cheaper to use than to rebuild from scratch.</p>
+  <p>Three product properties reinforce this:</p>
+  <div class="tag-row">
+    <span class="tag hi">Open source &amp; free</span>
+    <span class="tag hi">Built on tmux / SSH — no proprietary lock-in</span>
+    <span class="tag hi">mngr connect &amp; transcripts for debuggability</span>
+  </div>
+
+  <h2>Building community on GitHub</h2>
+  <p>GitHub should become the center of gravity for the ecosystem. The long-term opportunity is a shareable workflow and skill library — once developers can publish and compose workflows, community effects compound. Near-term investments:</p>
+  <div class="tag-row">
+    <span class="tag">Reusable skill templates</span>
+    <span class="tag">Debugging recipes</span>
+    <span class="tag">Workflow examples by use case</span>
+    <span class="tag">Contribution-friendly starter tasks</span>
+    <span class="tag">Active PR / issue response</span>
+  </div>
+
+  <h2>Building community on Twitter/X</h2>
+  <p>The goal is not consumer reach. It is attracting highly technical workflow builders. The highest-signal content formats are:</p>
+  <div class="tag-row">
+    <span class="tag">Terminal recordings</span>
+    <span class="tag">Debugging clips</span>
+    <span class="tag">Architecture insights</span>
+    <span class="tag">Reusable skill examples</span>
+    <span class="tag">"100 agents fixing tests in parallel" demos</span>
+  </div>
+  <div class="warning">
+    <strong>What to avoid:</strong> abstract AGI messaging, generic "AI assistant" demos, vague autonomous-agent hype. These attract the wrong audience and set incorrect expectations.
+  </div>
+
+  <h2>Biggest near-term opportunity: first successful agent</h2>
+  <p>The highest-leverage investment right now is improving the "first successful agent" experience. Developers evaluating agent tooling commonly hit three blockers: no paid provider access, insufficient runtime context, and environment setup friction. A lightweight onboarding path — ideally with a free-tier entry point — combined with stronger runtime diagnostics would materially improve early retention.</p>
+  <div class="insight">The strongest community grows from the moment a developer ships something with mngr they couldn't have shipped as easily without it.</div>
+</div>
